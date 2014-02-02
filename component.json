@@ -1,0 +1,19 @@
+{
+	"name": "WuiView",
+	"repo": "Wizcorp/wui-View",
+	"version": "0.1.0",
+	"description": "View Class for Wui Dom",
+	"dependencies": {
+		"component/inherit": "*",
+		"Wizcorp/wui-Dom": "0.1.0"
+	},
+	"local": [
+		"WuiDom"
+	],
+	"paths": [
+		"../../core"
+	],
+	"scripts": [
+		"index.js"
+	]
+}
