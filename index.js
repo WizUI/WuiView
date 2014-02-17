@@ -44,23 +44,44 @@ WuiView.prototype.close = function () {
  * disableScrolling
  */
 WuiView.prototype.disableScrolling = function () {
-	this.allowDomEvents();
+
+	if (this.scrollingDisabled === undefined) {
+
+		var that = this;
+		this.allowDomEvents();
+		this.scrollingDisabled = true;
+
+		this.on('dom.touchmove', function (e) {
+			// note: this does not work on a desktop
+
+			if (that.scrollingDisabled) {
+				e.preventDefault();
+			}
+		});
+	}
 
 	this.scrollingDisabled = true;
-	var that = this;
-
-	this.on('dom.touchmove', function (e) {
-		// note: this does not work on a desktop
-
-		if (that.scrollingDisabled) {
-			e.preventDefault();
-		}
-	});
 };
 
 /**
  * enableScrolling
  */
 WuiView.prototype.enableScrolling = function () {
+
+	if (this.scrollingDisabled === undefined) {
+
+		var that = this;
+		this.allowDomEvents();
+		this.scrollingDisabled = false;
+
+		this.on('dom.touchmove', function (e) {
+			// note: this does not work on a desktop
+
+			if (that.scrollingDisabled) {
+				e.preventDefault();
+			}
+		});
+	}
+
 	this.scrollingDisabled = false;
 };
