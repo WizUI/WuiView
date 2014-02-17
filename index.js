@@ -41,25 +41,29 @@ WuiView.prototype.close = function () {
 };
 
 /**
- * disableScrolling
+ * add a touch listener to the view
  */
-WuiView.prototype.disableScrolling = function () {
+WuiView.prototype._addScrollingListener = function () {
 
 	if (this.scrollingDisabled === undefined) {
-
 		var that = this;
 		this.allowDomEvents();
-		this.scrollingDisabled = true;
 
 		this.on('dom.touchmove', function (e) {
-			// note: this does not work on a desktop
+			// TODO: this does not work on a desktop
 
 			if (that.scrollingDisabled) {
 				e.preventDefault();
 			}
 		});
 	}
+};
 
+/**
+ * disableScrolling
+ */
+WuiView.prototype.disableScrolling = function () {
+	this._addScrollingListener();
 	this.scrollingDisabled = true;
 };
 
@@ -67,21 +71,6 @@ WuiView.prototype.disableScrolling = function () {
  * enableScrolling
  */
 WuiView.prototype.enableScrolling = function () {
-
-	if (this.scrollingDisabled === undefined) {
-
-		var that = this;
-		this.allowDomEvents();
-		this.scrollingDisabled = false;
-
-		this.on('dom.touchmove', function (e) {
-			// note: this does not work on a desktop
-
-			if (that.scrollingDisabled) {
-				e.preventDefault();
-			}
-		});
-	}
-
+	this._addScrollingListener();
 	this.scrollingDisabled = false;
 };
