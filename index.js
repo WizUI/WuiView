@@ -10,7 +10,6 @@ function WuiView() {
 	WuiDom.call(this);
 	this.assign('div', { className: 'WuiView' });
 	this.hideMethod();
-	this._hasTouchListener = false;
 }
 
 inherit(WuiView, WuiDom);
@@ -42,28 +41,34 @@ WuiView.prototype.close = function () {
 };
 
 /**
- * disableScrolling
+ * set scrolling listener
  */
-WuiView.prototype.disableScrolling = function () {
-	if (!this._hasTouchListener) {
-		this._hasTouchListener = true;
-		var that = this;
-		this.allowDomEvents();
+function setScrolling(view, value) {
+	if (view.scrollingDisabled === undefined) {
+		view.allowDomEvents();
 
-		this.on('dom.touchmove', function (e) {
+		view.on('dom.touchmove', function (e) {
 			// TODO: this does not work on a desktop
 
-			if (that.scrollingDisabled) {
+			if (view.scrollingDisabled) {
 				e.preventDefault();
 			}
 		});
 	}
-	this.scrollingDisabled = true;
+
+	view.scrollingDisabled = value;
+}
+
+/**
+ * disableScrolling
+ */
+WuiView.prototype.disableScrolling = function () {
+	setScrolling(this, false);
 };
 
 /**
  * enableScrolling
  */
 WuiView.prototype.enableScrolling = function () {
-	this.scrollingDisabled = false;
+	setScrolling(this, true);
 };
