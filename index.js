@@ -63,12 +63,12 @@ function setScrolling(view, value) {
  * disableScrolling
  */
 WuiView.prototype.disableScrolling = function () {
-	setScrolling(this, false);
+	setScrolling(this, true);
 };
 
 /**
  * enableScrolling
  */
 WuiView.prototype.enableScrolling = function () {
-	setScrolling(this, true);
+	setScrolling(this, false);
 };
