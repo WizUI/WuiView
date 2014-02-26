@@ -1,23 +1,24 @@
-#WUIView
+#WuiView
 
 ## What it is
 
 This functions is basically an HTML div, but allows for the created, opening, opened, closing and
 closed events. On each of these events, the game programmer can perform logic related to loading
-data, binding other events, animation or other game events. Inherits from WUIDom.
+data, binding other events, animation or other game events. Inherits from [WuiDom](https://github.com/Wizcorp/wui-Dom).
 
-## Using the WUIView component
+## Using the WuiView component
 
-A WUIView often contains other WUIDom and WUI elements, and is usually a container element, used
-for display, hide and show logic. It can interact with NavTree to enable smooth navigation on single
-page applications.
+A WUIView often contains other WuiDom and WUI elements, and is usually a container element, used
+for display, hide and show logic.
+It can interact with [NavTree](https://github.com/Wizcorp/NavTree) to enable smooth navigation on a single page  applications.
 
 ## Methods
 
 ### create
 
-The create method is called when a view is being created. This method is called by NavTree when a
-WUIView is registered. It includes optional parameters, specified during the item registration
+The create method is called when a view is being created.
+This method is called by NavTree when a WuiView is registered.
+It includes optional parameters, specified during the item registration
 process.
 
 Calling the method:
@@ -31,7 +32,7 @@ considered optional.
 
 ### open
 
-The open method can be used to show a WUIView.
+The open method can be used to show a WuiView.
 
 The views are automatically scrolled into view,
 so the user should not worry about trying to do screen logic.
@@ -54,7 +55,7 @@ newView.close();
 
 ### disableScrolling
 
-The disableScrolling method can be used to disable scrolling events on a WUIView.
+The disableScrolling method can be used to disable scrolling events on a WuiView.
 
 Calling the method:
 
@@ -73,7 +74,7 @@ Calling the method:
 newView.enableScrolling();
 ```
 
-## Events
+## Events (from [NavTree](https://github.com/Wizcorp/NavTree))
 
 ### created
 
@@ -82,15 +83,24 @@ registered in a NavTree.
 
 ### opening
 
-The opening event is called when the WUIView's open method is called, and it is in the process of
-being transitioned to.
+The `opening` event is called when the WuiView's open method is called,
+and it is in the process of being transitioned to.
+
+### opened
+
+The `opened` event is called when the WuiView is finally on screen.
+
+### closing
+
+The `closing` event is called when the WuiView close method is called.
+Can be used to trigger closing animation.
 
 ### closed
 
-The closed event is called when the WUIView's closed method is called. Destructor logic should be
-placed here.
+The closed event is called when the WuiView's closed method is called.
+Destructor logic should be placed here.
 
-### How to use WUIView
+### How to use WuiView
 
 ```javascript
 
@@ -99,6 +109,7 @@ function SampleView() {
 
 	this.once('created', function () {
 		// Load player data
+		// Create content
 		// Setup button events
 	});
 
@@ -109,10 +120,10 @@ function SampleView() {
 	});
 
 	this.on('closed', function () {
-        // Pause animations
-        // Set timeouts
-        // Free resources
-        // Invalidate caches, if needed
+		// Pause animations
+		// Set timeouts
+		// Free resources
+		// Invalidate caches, if needed
 	});
 
 }
