@@ -41,26 +41,34 @@ WuiView.prototype.close = function () {
 };
 
 /**
+ * set scrolling listener
+ */
+function setScrolling(view, value) {
+	if (view.scrollingDisabled === undefined) {
+		view.allowDomEvents();
+
+		view.on('dom.touchmove', function (e) {
+			// TODO: this does not work on a desktop
+
+			if (view.scrollingDisabled) {
+				e.preventDefault();
+			}
+		});
+	}
+
+	view.scrollingDisabled = value;
+}
+
+/**
  * disableScrolling
  */
 WuiView.prototype.disableScrolling = function () {
-	this.allowDomEvents();
-
-	this.scrollingDisabled = true;
-	var that = this;
-
-	this.on('dom.touchmove', function (e) {
-		// note: this does not work on a desktop
-
-		if (that.scrollingDisabled) {
-			e.preventDefault();
-		}
-	});
+	setScrolling(this, true);
 };
 
 /**
  * enableScrolling
  */
 WuiView.prototype.enableScrolling = function () {
-	this.scrollingDisabled = false;
+	setScrolling(this, false);
 };
