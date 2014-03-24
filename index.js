@@ -1,4 +1,4 @@
-var inherit = require('inherit');
+var inherit = require('util').inherits;
 var WuiDom = require('WuiDom');
 
 /**
