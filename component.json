@@ -1,11 +1,11 @@
 {
 	"name": "WuiView",
 	"repo": "Wizcorp/wui-View",
-	"version": "0.2.1",
+	"version": "0.2.2",
 	"description": "View Class for Wui Dom",
 	"dependencies": {
 		"Wizcorp/util": "0.1.0",
-		"Wizcorp/wui-Dom": "0.3.1"
+		"Wizcorp/wui-Dom": "0.3.2"
 	},
 	"scripts": [
 		"index.js"
