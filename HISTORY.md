@@ -1,5 +1,10 @@
 # Release history
 
+## v0.2.2
+
+### Dependencies update
+Update `wui-Dom` from v0.3.1 to v0.3.2
+
 ## v0.2.1
 
 ### Dependencies update
