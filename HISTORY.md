@@ -1,5 +1,11 @@
 # Release history
 
+## v0.2.4
+
+### Dependencies update
+Updated `wui-Dom` to v0.4.0
+
+
 ## v0.2.3
 
 ### Dependencies update

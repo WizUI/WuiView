@@ -7,9 +7,7 @@ var WuiDom = require('WuiDom');
  * @augments WuiDom
  */
 function WuiView() {
-	WuiDom.call(this);
-	this.assign('div', { className: 'WuiView' });
-	this.hideMethod();
+	WuiDom.call(this, 'div', { className: 'WuiView', hidden: true });
 }
 
 inherit(WuiView, WuiDom);
@@ -26,7 +24,7 @@ WuiView.prototype.create = function (options, itemName) {
 };
 
 /**
- * @param params
+ * @desc
  */
 WuiView.prototype.open = function () {
 	window.document.documentElement.scrollIntoView(true);
