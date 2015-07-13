@@ -3,7 +3,6 @@ var WuiDom = require('WuiDom');
 
 /**
  * @class
- * @classDesc
  * @augments WuiDom
  */
 function WuiView() {
@@ -18,7 +17,6 @@ module.exports = WuiView;
  * @param itemName
  */
 WuiView.prototype.create = function (options, itemName) {
-
 	options.parentElement.appendChild(this.rootElement);
 	this.emit('created', options, itemName);
 };

@@ -1,16 +1,18 @@
 #WuiView
+[![Circle CI](https://circleci.com/gh/WizUI/WuiView/tree/master.svg?style=svg)](https://circleci.com/gh/WizUI/WuiView/tree/master)
 
 ## What it is
 
 This functions is basically an HTML div, but allows for the created, opening, opened, closing and
 closed events. On each of these events, the game programmer can perform logic related to loading
-data, binding other events, animation or other game events. Inherits from [WuiDom](https://github.com/Wizcorp/wui-Dom).
+data, binding other events, animation or other game events. Inherits from [WuiDom].
 
 ## Using the WuiView component
 
-A WUIView often contains other WuiDom and WUI elements, and is usually a container element, used
+A WuiView often contains other [WuiDom] and [WizUI] elements, and is usually a container element, used
 for display, hide and show logic.
-It can interact with [NavTree](https://github.com/Wizcorp/NavTree) to enable smooth navigation on a single page  applications.
+It can interact with [NavTree](https://github.com/Wizcorp/NavTree) to enable smooth navigation
+on a single page applications.
 
 ## Methods
 
@@ -45,7 +47,7 @@ newView.open();
 
 ### close
 
-The close method can be used to hide a WUIView.
+The close method can be used to hide a WuiView.
 
 Calling the method:
 
@@ -65,8 +67,8 @@ newView.disableScrolling();
 
 ### enableScrolling
 
-The enableScrolling method can be used to enable scrolling events on a WUIView. By default,
-scrolling events are enabled on a WUIView.
+The enableScrolling method can be used to enable scrolling events on a WuiView. By default,
+scrolling events are enabled on a WuiView.
 
 Calling the method:
 
@@ -78,7 +80,7 @@ newView.enableScrolling();
 
 ### created
 
-The created event is called when the WUIView's create function has completed, and after it is
+The created event is called when the WuiView's create function has completed, and after it is
 registered in a NavTree.
 
 ### opening
@@ -131,3 +133,6 @@ function SampleView() {
 inherit(SampleView, WuiView);
 module.exports = SampleView;
 ```
+
+[WuiDom]: http://github.com/WizUI/WuiDom
+[WizUI]: http://wizui.github.io/

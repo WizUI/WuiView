@@ -1,5 +1,8 @@
 # Release history
 
+## v0.3.0
+Added more compatibility through package.json
+
 ## v0.2.9
 
 ### Dependencies update
