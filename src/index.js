@@ -1,5 +1,5 @@
 var inherit = require('util').inherits;
-var WuiDom = require('WuiDom');
+var WuiDom = require('wuidom');
 
 /**
  * @class
@@ -17,7 +17,7 @@ module.exports = WuiView;
  * @param itemName
  */
 WuiView.prototype.create = function (options, itemName) {
-	options.parentElement.appendChild(this.rootElement);
+	options.parentElement.appendChild(this);
 	this.emit('created', options, itemName);
 };
 

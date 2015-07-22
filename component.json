@@ -1,7 +1,7 @@
 {
 	"name": "WuiView",
 	"repo": "WizUI/WuiView",
-	"version": "0.3.0",
+	"version": "0.3.1",
 	"description": "View Class for WuiDom",
 	"dependencies": {
 		"Wizcorp/util": "0.1.0",

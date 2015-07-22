@@ -1,5 +1,11 @@
 # Release history
 
+## v0.3.1
+
+### Lower is better
+Renamed the require of 'WuiDom' into 'wuidom'
+
+
 ## v0.3.0
 
 ### Let's meet the world
